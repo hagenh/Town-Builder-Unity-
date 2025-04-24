@@ -37,7 +37,6 @@ namespace DefaultNamespace
             // Base interaction logic
             if (health <= 0)
             {
-                Debug.Log($"Gathered {yieldAmount} {resourceYield.itemName}");
                 GameManager.Instance.Inventory.AddResource(resourceYield, yieldAmount);
                 
                 isDepleted = true;
@@ -52,7 +51,6 @@ namespace DefaultNamespace
             // Base interaction logic
             if (health <= 0)
             {
-                Debug.Log($"Gathered {yieldAmount} {resourceYield.itemName}");
                 // TODO: find out if the NPC already has the item
                 npc.Inventory.Add(new NpcInventoryItem(resourceYield, yieldAmount));
                 
@@ -72,8 +70,6 @@ namespace DefaultNamespace
             resourceYield = ItemDatabase.Instance.GetItemById(0);
             yieldAmount = Random.Range(3, 6);
             health = 150;
-            
-            Debug.Log("Tree created with yield: " + yieldAmount);
         }
     }
 

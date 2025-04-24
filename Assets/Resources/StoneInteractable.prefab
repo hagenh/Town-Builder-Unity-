@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3482804621982591267}
   - component: {fileID: 1658376940886283691}
   - component: {fileID: -7997346387822435157}
+  - component: {fileID: 5136165826847141404}
   m_Layer: 7
   m_Name: StoneInteractable
   m_TagString: Stone
@@ -206,3 +207,16 @@ MonoBehaviour:
   interactionTime: 2
   health: 1
   isDepleted: 0
+--- !u!114 &5136165826847141404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4417520979972056912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 667b56540a171334988b0a1b6ebf68af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offset: 0

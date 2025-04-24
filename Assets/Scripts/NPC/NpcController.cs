@@ -34,11 +34,6 @@ namespace DefaultNamespace.NPC
 
         private void Update()
         {
-            if(npcJob == NpcJob.Woodcutter)
-            {
-                Debug.Log("Woodcutter job: " + Tasks.First().GetType().Name + " | " + Tasks.Count);
-            }
-            
             if (Tasks.Count == 0)
             {
                 return;

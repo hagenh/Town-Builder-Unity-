@@ -25,11 +25,6 @@ public class MoveToTask : ITask
     {
         if (Vector2.Distance(npc.transform.position.ToVector2(), _target) <= _arrivalThreshold)
         {
-            if(npc.npcJob is NpcJob.Woodcutter)
-            {
-                Debug.Log("Woodcutter is close enough to the tree. Distance: " + Vector2.Distance(npc.transform.position.ToVector2(), _target));
-            }
-            
             return TaskStatus.Success;
         }
 
@@ -52,7 +47,6 @@ public class MoveToTask : ITask
 
             if (indexOfNext == _path.Length)
             {
-                Debug.Log("Woodcutter is close enough to the tree 2. Distance: " + Vector2.Distance(npc.transform.position.ToVector2(), _target));
                 return TaskStatus.Success;
             }
             

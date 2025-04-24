@@ -88,6 +88,9 @@ public class PlayerController : MonoBehaviour
     {
         GUI.Label(new Rect(10, 10, 200, 20), "Current State: " + stateMachine.CurrentState.GetType().Name);
         GUI.Label(new Rect(10, 30, 200, 20), "Current Interaction: " + currentTarget ?? "null");
+        GUI.Label(new Rect(10, 50, 200, 20), "Position: " + transform.position);
+        GUI.Label(new Rect(10, 70, 200, 20), "FPS: " + (int)(1f / Time.unscaledDeltaTime));
+        
         
         if(stateMachine.CurrentState is PlayerBuildingState buildingState)
         {

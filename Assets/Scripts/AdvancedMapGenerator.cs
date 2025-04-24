@@ -55,7 +55,7 @@ public class AdvancedMapGenerator : MonoBehaviour
     private Dictionary<Vector3Int, TileType> _tileTypeMap = new();
     private List<GameObject> _decorationInstances = new();
     
-    public List<NpcController> npcs;
+    public GameObject npcPrefab;
 
     private bool _hasRan = false;
 
@@ -112,7 +112,7 @@ public class AdvancedMapGenerator : MonoBehaviour
         {
             for (int y = startY; y < startY + chunkSize; y++)
             {
-                DisplayTileType(x, y, _tileTypeMap[new Vector3Int(x, y, 0)]);
+                // DisplayTileType(x, y, _tileTypeMap[new Vector3Int(x, y, 0)]);
                 
                 var currentTile = tilemap.GetTile(new Vector3Int(x, y, 0));
                 if (!currentTile || _tileTypeMap[new Vector3Int(x, y, 0)] == TileType.Water)
@@ -283,7 +283,8 @@ public class AdvancedMapGenerator : MonoBehaviour
                 var npcSpawningChance = Random.Range(0f, 1000f);
                 if (npcSpawningChance > 999f)
                 {
-                    Instantiate()
+                    Instantiate(npcPrefab, new Vector2(x, y), Quaternion.identity);
+                    Debug.Log("NPC spawned at " + new Vector2(x, y) + "!");
                 }
 
                 if(lakeNoise < lakeThreshold)

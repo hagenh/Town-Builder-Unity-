@@ -23,8 +23,6 @@ namespace DefaultNamespace.NPC
             // Not close enough to the tree. Add MoveToTask to get close
             if (!IsCloseEnoughToTree(npc))
             {
-                Debug.Log("Tree is too far away at a distance of " + Vector2.Distance(_tree.GetComponent<Collider2D>().transform.position, npc.transform.position) + " | Threshold: " + threshold);
-                var collider = _tree.GetComponents<Collider2D>().First(x => x.isTrigger);
                 var position = _tree.transform.position.ToVector2() + new Vector2(0, -0.75f);
                 var movetoTask = new MoveToTask(position);
                 var tasks = new List<ITask>() { movetoTask }.Concat(npc.Tasks).ToList();
@@ -33,7 +31,6 @@ namespace DefaultNamespace.NPC
                 return TaskStatus.Running;
             }
             
-            Debug.Log("I am close enough to the tree");
             var status = _tree.GetComponent<Interactable>().Interact(npc);
             if (status == TaskStatus.Success)
             {
@@ -46,18 +43,15 @@ namespace DefaultNamespace.NPC
         [CanBeNull]
         GameObject FindTree(NpcController npc)
         {
-            Debug.Log("Assigning new tree!");
             var trees = GameObject.FindGameObjectsWithTag("Tree");
             var gameObjectInRadius = trees
                 .OrderBy(x => Vector3.Distance(x.transform.position, npc.transform.position)).ToArray();
 
             if (!gameObjectInRadius.Any())
             {
-                Debug.Log("No Tree");
                 return null;
             }
             
-            Debug.Log(gameObjectInRadius.First().name);
             return gameObjectInRadius.First();
         }
 

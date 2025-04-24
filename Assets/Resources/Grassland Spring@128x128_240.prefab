@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5282863929645756914}
   - component: {fileID: 7248150820390963169}
+  - component: {fileID: 4393535242953850087}
   m_Layer: 0
   m_Name: Grassland Spring@128x128_240
   m_TagString: Untagged
@@ -87,3 +88,16 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &4393535242953850087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7562645573349099719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 667b56540a171334988b0a1b6ebf68af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offset: 0
