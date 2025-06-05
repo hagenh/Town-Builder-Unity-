@@ -59,37 +59,29 @@ public class AStarAlgorithm
         return new List<AStarNode>();
     }
 
+    private AStarNode CreateNeighbor(AStarNode current, Vector2Int direction)
+    {
+        var neighborPos = current.Position + direction;
+        return new AStarNode(
+            neighborPos,
+            current,
+            GetCost(StartNode.Position, neighborPos),
+            GetCost(neighborPos, TargetNode.Position),
+            true
+        );
+    }
+
     public List<AStarNode> FindNeighbors(AStarNode currentNode)
     {
-        var upNode = new AStarNode(
-            currentNode.Position + Vector2Int.up,
-            currentNode,
-            GetCost(StartNode.Position, currentNode.Position + Vector2Int.up),
-            GetCost(currentNode.Position + Vector2Int.up, TargetNode.Position),
-            true
-        );
-        var rightNode = new AStarNode(
-            currentNode.Position + Vector2Int.right, 
-            currentNode,
-            GetCost(StartNode.Position, currentNode.Position + Vector2Int.right),
-            GetCost(currentNode.Position + Vector2Int.right, TargetNode.Position),
-            true
-        );
-        var downNode = new AStarNode(
-            currentNode.Position + Vector2Int.down, 
-            currentNode,
-            GetCost(StartNode.Position, currentNode.Position + Vector2Int.right), 
-            GetCost(currentNode.Position + Vector2Int.right, TargetNode.Position),
-            true
-        );
-        var leftNode = new AStarNode(
-            currentNode.Position + Vector2Int.left,
-            currentNode,
-            GetCost(StartNode.Position, currentNode.Position + Vector2Int.right), 
-            GetCost(currentNode.Position + Vector2Int.right, TargetNode.Position),
-            true
-        );
-        return new List<AStarNode> { upNode, rightNode, downNode, leftNode };
+        var directions = new[]
+        {
+            Vector2Int.up,
+            Vector2Int.right,
+            Vector2Int.down,
+            Vector2Int.left
+        };
+
+        return directions.Select(d => CreateNeighbor(currentNode, d)).ToList();
     }
 
     public List<AStarNode> RetracePath(AStarNode node)
