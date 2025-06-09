@@ -41,3 +41,11 @@ The game is in **active development**. Major systems like resource gathering, pr
 - **C#**
 - Custom **tile-based world system**
 - Future plans: Dialogue system, questing, inventory & crafting
+
+## 🗨️ Dialogue & Recruitment
+
+A basic dialogue system is now included. Create `Dialogue` scriptable objects with your conversation lines and assign them to NPCs via the `RecruitableNpc` component. Attach `NpcDialogueInteractor` to a trigger around the NPC and the player can press **E** to talk. Press **F** in the example script to increase how much the NPC likes the player.
+
+Once the `like` value reaches the `recruitThreshold`, interacting will recruit the NPC and future conversations will use the `recruitedDialogue` asset instead.
+
+NPCs can gain affection when the player helps them or gives them items. In the example component pressing **F** simulates giving a gift and calls `IncreaseLike(1)`.
